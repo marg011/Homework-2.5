@@ -17,9 +17,9 @@ public class ExceptionController {
     }
 
     @GetMapping(path = "/exceptions")
-    public static void method1(@RequestParam("login") String login, @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword) {
+    public void method1(@RequestParam("login") String login, @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword) {
         try {
-            ExceptionService.method1(login, password, confirmPassword);
+            exceptionService.method1(login, password, confirmPassword);
         } catch (WrongLoginException e) {
             throw new RuntimeException(e);
         } catch (WrongPasswordException e) {
